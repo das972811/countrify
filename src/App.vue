@@ -1,8 +1,11 @@
 <script setup lang="ts">
+    import { RouterView } from 'vue-router'
 </script>
 
 <template>
-  <h2>Diego</h2>
+    <main>
+        <RouterView />
+    </main>
 </template>
 
 <style scoped>
