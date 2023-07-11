@@ -1,8 +1,18 @@
-<script setup lang="ts">
-</script>
 <template>
     <main>
+        {{ count }}
     </main>
 </template>
+<script lang="ts">
+    import { defineComponent } from 'vue';
+
+    export default defineComponent({
+        data() {
+            return {
+                count: 1,
+            };
+        },
+    });
+</script>
 <style scoped>
 </style>
