@@ -1,18 +1,13 @@
 <template>
     <main>
+        <the-header></the-header>
         {{ count }}
     </main>
 </template>
-<script lang="ts">
-    import { defineComponent } from 'vue';
+<script setup lang="ts">
+    import TheHeader from './components/layouts/TheHeader.vue';
 
-    export default defineComponent({
-        data() {
-            return {
-                count: 1,
-            };
-        },
-    });
+    let count = 0;
 </script>
 <style scoped>
 </style>
