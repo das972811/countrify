@@ -10,7 +10,4 @@
 
 </script>
 <style scoped>
-header {
-    background: red;
-}
 </style>
