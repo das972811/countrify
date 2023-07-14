@@ -7,13 +7,29 @@
     </header>
 </template>
 <script setup lang="ts">
-
+let mode = 'light-theme';
 
 function changeColorTheme()
 {
-    console.log("Diego is awesome at programming");
+    // document.documentElement.className = 'dark-theme';
+    // https://web.dev/prefers-color-scheme/
+    const colorTheme = window.matchMedia('(prefers-color-scheme: dark)');
+
+    if (colorTheme.media !== 'not all') {
+        console.log("Yay we supported");
+
+        if (colorTheme.matches)
+        {
+            document.documentElement.className = 'dark-theme';
+        }
+    } else {
+        console.log("We don't supported");
+    }
 }
 
 </script>
 <style scoped>
+header {
+    background-color: var(--diego);
+}
 </style>
