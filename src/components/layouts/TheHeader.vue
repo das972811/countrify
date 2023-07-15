@@ -2,11 +2,14 @@
     <header>
         <h1>Where in the World?</h1>
         <div>
-            <button>Dark Mode</button>
+            <base-button>
+                <moon-icon></moon-icon> <span>Dark Mode</span>
+            </base-button>
         </div>
     </header>
 </template>
 <script setup lang="ts">
+    import MoonIcon from '@/components/UI/icons/MoonIcon.vue';
 </script>
 <style scoped>
 header {
@@ -23,4 +26,11 @@ header > h1 {
     font-size: 1.65rem;
 }
 
+header > div {
+    width: 6.5rem;
+}
+
+span {
+    font-size:  1rem;
+}
 </style>

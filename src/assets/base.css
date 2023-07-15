@@ -4,13 +4,13 @@
     --background-color-primary: #fafafa;
     --accent-color: #ffffff;
     --text-color: #111517;
+    --dark-grey: #858585;
 }
 
 :root.dark-theme {
     --background-color-primary: #202c37;
     --accent-color: #2b3945;
     --text-color: #ffffff;
-
     --dark-grey: #858585;
 }
 
