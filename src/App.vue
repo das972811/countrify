@@ -12,7 +12,7 @@
     let count = 0;
     count++;
 
-    onMounted(()=> {
+    onMounted(() => {
         const colorTheme = window.matchMedia('(prefers-color-scheme: dark)');
     
         if (colorTheme.media !== 'not all') {

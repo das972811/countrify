@@ -2,7 +2,8 @@
     <header>
         <h1>Where in the World?</h1>
         <div>
-            <base-button>
+            <!-- <base-button @click="emit('switchColorTheme', 1)"> -->
+            <base-button @click="switchColorTheme">
                 <moon-icon></moon-icon> <span>Dark Mode</span>
             </base-button>
         </div>
@@ -10,6 +11,19 @@
 </template>
 <script setup lang="ts">
     import MoonIcon from '@/components/UI/icons/MoonIcon.vue';
+
+    function switchColorTheme() {
+        const darkMode = window.matchMedia('(prefers-color-scheme: dark)');
+        const lightMode = window.matchMedia('(prefers-color-scheme: light)');
+        const mode = document.documentElement.className;
+
+        if (mode === 'dark-theme') {
+            document.documentElement.className = '';
+        } else if (mode === '') {
+            document.documentElement.className = 'dark-theme';
+        }
+    }
+
 </script>
 <style scoped>
 header {
