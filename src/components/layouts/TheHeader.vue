@@ -2,34 +2,25 @@
     <header>
         <h1>Where in the World?</h1>
         <div>
-            <button @click="changeColorTheme">Dark Mode</button>
+            <button>Dark Mode</button>
         </div>
     </header>
 </template>
 <script setup lang="ts">
-let mode = 'light-theme';
-
-function changeColorTheme()
-{
-    // document.documentElement.className = 'dark-theme';
-    // https://web.dev/prefers-color-scheme/
-    const colorTheme = window.matchMedia('(prefers-color-scheme: dark)');
-
-    if (colorTheme.media !== 'not all') {
-        console.log("Yay we supported");
-
-        if (colorTheme.matches)
-        {
-            document.documentElement.className = 'dark-theme';
-        }
-    } else {
-        console.log("We don't supported");
-    }
-}
-
 </script>
 <style scoped>
 header {
-    background-color: var(--diego);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 5rem; /* 10 rem for mobile */
+    padding: 0 5rem;
+    background-color: var(--accent-color);
 }
+
+header > h1 {
+    font-size: 1.65rem;
+}
+
 </style>

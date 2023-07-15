@@ -2,18 +2,16 @@
 
 :root {
     --background-color-primary: #fafafa;
-    --white: #ffffff;
-    --diego: green;
-
-    /* color-scheme: dark; */
+    --accent-color: #ffffff;
+    --text-color: #111517;
 }
 
 :root.dark-theme {
-    --background-color-primary: #2b3945;
-    --very-dark-blue: #202c37;
-    --very-dark-blue2: #111517;
+    --background-color-primary: #202c37;
+    --accent-color: #2b3945;
+    --text-color: #ffffff;
+
     --dark-grey: #858585;
-    --diego: blue;
 }
 
 *,
@@ -36,5 +34,5 @@ body {
 }
 
 body {
-    background-color: var(--background-color-primary);
+    color: var(--text-color);
 }
