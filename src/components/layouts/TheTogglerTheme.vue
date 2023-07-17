@@ -25,6 +25,8 @@
     padding: 0 0.4rem;
     background-color: var(--dark-grey);
     cursor: pointer;
+    border: 1px solid var(--dark-grey);
+    transition: border-color 150ms ease-in-out;
 }
 
 .toggle-theme > svg {
@@ -46,6 +48,10 @@
     border-radius: 50%;
     background: var(--accent-color);
     transition: transform 250ms ease-in-out;
+}
+
+.toggle-theme:hover {
+    border-color: white;
 }
 
 .checkbox:checked + label > .ball {
