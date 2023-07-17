@@ -7,6 +7,7 @@
     flex-direction: column;
 
     background-color: var(--background-color-primary);
+    transition: background-color 325ms ease, color 325ms ease;
 }
 
 #app > main {
@@ -17,6 +18,6 @@
     flex-shrink: 0;
 }
 
-/* #app svg {
-    transition: fill 500ms ease-in;
-} */
+#app svg {
+    transition: fill 325ms ease;
+}
