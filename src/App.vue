@@ -14,16 +14,8 @@
 
     onMounted(() => {
         const colorTheme = window.matchMedia('(prefers-color-scheme: dark)');
-    
-        if (colorTheme.media !== 'not all') {
-            console.log("Yay we supported");
-    
-            if (colorTheme.matches)
-            {
-                document.documentElement.className = 'dark-theme';
-            }
-        } else {
-            console.log("We don't supported");
+        if (colorTheme.media !== 'not all' && colorTheme.matches) {
+            document.documentElement.className = 'dark-theme';
         }
     }, this);
 

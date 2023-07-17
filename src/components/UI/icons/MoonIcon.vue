@@ -7,12 +7,6 @@
     </svg>
 </template>
 <style scoped>
-/* svg {
-    fill: blue;
-    stroke: green;
-    stroke-width: 2rem;
-
-} */
 
 svg {
     fill: var(--text-color);

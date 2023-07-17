@@ -12,4 +12,8 @@
     </svg>
 </template>
 <style scoped>
+svg {
+    fill: var(--text-color);
+    width: 1rem;
+}
 </style>

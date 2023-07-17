@@ -2,15 +2,16 @@
     <header>
         <h1>Where in the World?</h1>
         <div>
-            <!-- <base-button @click="emit('switchColorTheme', 1)"> -->
-            <base-button @click="switchColorTheme">
+            <!-- <base-button @click="switchColorTheme">
                 <moon-icon></moon-icon> <span>Dark Mode</span>
-            </base-button>
+            </base-button> -->
+            <the-toggler-theme></the-toggler-theme>
         </div>
     </header>
 </template>
 <script setup lang="ts">
     import MoonIcon from '@/components/UI/icons/MoonIcon.vue';
+    import TheTogglerTheme from '@/components/layouts/TheTogglerTheme.vue';
 
     function switchColorTheme() {
         const darkMode = window.matchMedia('(prefers-color-scheme: dark)');

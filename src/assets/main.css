@@ -16,3 +16,7 @@
 #app > footer {
     flex-shrink: 0;
 }
+
+/* #app svg {
+    transition: fill 500ms ease-in;
+} */
