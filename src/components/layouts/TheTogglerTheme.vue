@@ -1,5 +1,5 @@
 <template>
-    <input class="checkbox" type="checkbox" id="toggle-theme"/>
+    <input class="checkbox" type="checkbox" id="toggle-theme" v-model="toggleTheme" @input="switchColorTheme"/>
     <label class="toggle-theme" for="toggle-theme">
         <sun-icon></sun-icon>
         <moon-icon></moon-icon>
@@ -7,11 +7,28 @@
     </label>
 </template>
 <script setup lang="ts">
+    import { onMounted, ref } from 'vue';
+
     import MoonIcon from '@/components/UI/icons/MoonIcon.vue';
     import SunIcon from '@/components/UI/icons/SunIcon.vue';
-    // https://codepen.io/AlexGolovanov/pen/xxyYzOq
 
+    const toggleTheme = ref(false);
 
+    const switchColorTheme = () => {
+        const mode = document.documentElement.className;
+        if (mode === 'dark-theme') {
+            document.documentElement.className = '';
+        } else if (mode === '') {
+            document.documentElement.className = 'dark-theme';
+        }
+    }
+
+    onMounted(() => {
+        const darkMode = window.matchMedia('(prefers-color-scheme: dark)');
+        if (darkMode.matches) {
+            toggleTheme.value = true;
+        }
+    });
 </script>
 <style scoped>
 .toggle-theme {
@@ -51,7 +68,7 @@
 }
 
 .toggle-theme:hover {
-    border-color: white;
+    border-color: var(--text-color);
 }
 
 .checkbox:checked + label > .ball {

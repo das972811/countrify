@@ -4,7 +4,8 @@
     --background-color-primary: #fafafa;
     --accent-color: #ffffff;
     --text-color: #111517;
-    --dark-grey: #858585;
+    --dark-grey: #e4e4e4;
+    /* #858585 */
 
     color-scheme: light dark;
 }
