@@ -5,6 +5,8 @@
     --accent-color: #ffffff;
     --text-color: #111517;
     --dark-grey: #858585;
+
+    color-scheme: light dark;
 }
 
 :root.dark-theme {

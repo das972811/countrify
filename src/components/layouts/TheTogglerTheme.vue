@@ -23,7 +23,7 @@
     height: 2.2rem;
     border-radius: 3rem;
     padding: 0 0.4rem;
-    background-color: var(--background-color-primary);
+    background-color: var(--dark-grey);
     cursor: pointer;
 }
 
@@ -35,20 +35,22 @@
     display: none;
 }
 
+
 .ball {
     position: absolute;
     top: 50%;
     left: 50%;
-    /* x-value */
-    /* -122% -50%  22% */
     transform:  translateX(-122%) translateY(-50%);
     width: 1.5rem;
     height: 1.5rem;
     border-radius: 50%;
-    background: red;
-    /* color-scheme: light; */
+    background: var(--accent-color);
+    transition: transform 250ms ease-in-out;
 }
 
+.checkbox:checked + label > .ball {
+    transform:  translateX(22%) translateY(-50%);
+}
 
 
 
