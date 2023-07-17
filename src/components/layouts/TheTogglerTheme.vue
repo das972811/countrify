@@ -1,10 +1,12 @@
 <template>
-    <input class="checkbox" type="checkbox" id="toggle-theme" v-model="toggleTheme" @input="switchColorTheme"/>
-    <label class="toggle-theme" for="toggle-theme">
-        <sun-icon></sun-icon>
-        <moon-icon></moon-icon>
-        <span class="ball"></span>
-    </label>
+    <div>
+        <input class="checkbox" type="checkbox" id="toggle-theme" v-model="toggleTheme" @input="switchColorTheme"/>
+        <label class="toggle-theme" for="toggle-theme">
+            <sun-icon></sun-icon>
+            <moon-icon></moon-icon>
+            <span class="ball"></span>
+        </label>
+    </div>
 </template>
 <script setup lang="ts">
     import { onMounted, ref } from 'vue';
@@ -67,14 +69,13 @@
     transition: transform 250ms ease-in-out;
 }
 
-.toggle-theme:hover {
-    border-color: var(--text-color);
-}
-
 .checkbox:checked + label > .ball {
     transform:  translateX(22%) translateY(-50%);
 }
 
-
-
+@media (hover: hover) and (pointer: fine) {
+    .toggle-theme:hover {
+        border-color: var(--text-color);
+    }
+}
 </style>
