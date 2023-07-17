@@ -42,7 +42,7 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    transform:  translateX(-122%) translateY(-50%);
+    transform:  translateX(-120%) translateY(-50%);
     width: 1.5rem;
     height: 1.5rem;
     border-radius: 50%;
