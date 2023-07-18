@@ -7,7 +7,7 @@
     import { onMounted } from 'vue';
     
     import TheHeader from './components/layouts/TheHeader.vue';
-    import TheCountries from './components/layouts/TheCountries.vue';
+    import TheCountries from './components/countries/TheCountries.vue';
     import TheFooter from './components/layouts/TheFooter.vue';
 
     onMounted(() => {

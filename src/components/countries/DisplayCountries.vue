@@ -1,7 +1,7 @@
 <template>
-    <main>
-        <p>Diego was here</p>
-    </main>
+    <div>
+        <h2>Display Countries</h2>
+    </div>
 </template>
 <script setup lang="ts">
 </script>
