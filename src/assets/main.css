@@ -11,10 +11,7 @@
 }
 
 #app > main {
-    flex: 1;
-    /* flex: 1 0 auto; */
-    /* flex-grow: 2; */
-    /* flex-wrap: wrap; */
+    flex: 1 0 auto;
 }
 
 #app > footer {
