@@ -58,9 +58,9 @@ section {
     color: var(--text-color);
     cursor: text;
 
-    transition: top 250ms ease-in-out,
-                background-color 250ms ease-in-out,
-                font-size 250ms ease-in-out;
+    transition: top 150ms ease-in-out,
+                left 150ms ease-in-out,
+                font-size 150ms ease-in-out;
 }
 
 .search-countries > label[for="search-countries"] span
@@ -71,12 +71,11 @@ section {
 
 .search-countries input[type='text']:focus + label[for="search-countries"],
 .search-countries input[type='text']:valid + label[for="search-countries"] {
-    top: 0;
+    top: -25%;
+    left: 0;
     width: initial;
     font-size: 0.8rem;
-    background-color: var(--input-background-color-primary);
-    /* #394651 */
-    padding: 0.1rem 0.2rem;
+    padding: 0.1rem 0.7rem;
     border-radius: 0.2rem;
 }
 
