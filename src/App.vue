@@ -4,16 +4,28 @@
     <the-footer></the-footer>
 </template>
 <script setup lang="ts">
-    import { onMounted } from 'vue';
+    import { onBeforeMount } from 'vue';
     
     import TheHeader from './components/layouts/TheHeader.vue';
     import TheCountries from './components/countries/TheCountries.vue';
     import TheFooter from './components/layouts/TheFooter.vue';
 
-    onMounted(() => {
+    onBeforeMount(() => {
         const colorTheme = window.matchMedia('(prefers-color-scheme: dark)');
-        if (colorTheme.media !== 'not all' && colorTheme.matches) {
+        const isDarkTheme = sessionStorage.getItem('dark-theme');
+
+        console.log('On Mounted');
+
+        if (!isDarkTheme) {
+            console.log('SETTING');
+            sessionStorage.setItem('dark-theme', 'false');
+        }
+
+        if (isDarkTheme === 'false') return;
+
+        if (colorTheme.media != 'not all' && colorTheme.matches) {
             document.documentElement.className = 'dark-theme';
+            sessionStorage.setItem('dark-theme', 'true');
         }
     }, this);
 

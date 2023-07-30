@@ -5,9 +5,10 @@
             <label for="search-countries"><search-icon></search-icon><span>Search for Countries</span></label>
         </div>
         <div class="filter-countries">
+            <button>
+                <down-arrow-icon></down-arrow-icon> Filter by Region
+            </button>
             <ul>
-                <li><down-arrow-icon></down-arrow-icon></li>
-                <li><button>Filter by Region</button></li>
                 <li><button>Africa</button></li>
                 <li><button>America</button></li>
                 <li><button>Asia</button></li>
@@ -79,9 +80,45 @@ section {
     border-radius: 0.2rem;
 }
 
-.filter-countries > ul {
+.filter-countries {
+    position: relative;
+    width: 12.5rem;
+}
+
+.filter-countries button {
+    width: 100%;
+    height: 3rem;
+    background-color: var(--accent-color);
+    color: var(--text-color);
+    border: none;
+    cursor: pointer;
+}
+
+.filter-countries > button:first-child {
+    position: relative;
     display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.filter-countries > button:first-child svg {
+    position: absolute;
+    left: 1.75rem;
+}
+
+.filter-countries > ul {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
     list-style: none;
+}
+
+.filter-countries li {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
 }
 
 @media screen and (max-width: 950px) {

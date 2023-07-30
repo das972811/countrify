@@ -9,27 +9,28 @@
     </div>
 </template>
 <script setup lang="ts">
-    import { onMounted, ref } from 'vue';
+    import { onMounted, ref, watch } from 'vue';
 
     import MoonIcon from '@/components/UI/icons/MoonIcon.vue';
     import SunIcon from '@/components/UI/icons/SunIcon.vue';
 
     const toggleTheme = ref(false);
+    const isDarkTheme = ref(sessionStorage.getItem('dark-theme'));
 
     const switchColorTheme = () => {
-        const mode = document.documentElement.className;
-        if (mode === 'dark-theme') {
+        if (isDarkTheme.value === 'true') {
             document.documentElement.className = '';
-        } else if (mode === '') {
+            sessionStorage.setItem('dark-theme', 'false');
+            isDarkTheme.value = 'false';
+        } else {
             document.documentElement.className = 'dark-theme';
+            sessionStorage.setItem('dark-theme', 'true')
+            isDarkTheme.value = 'true';
         }
     }
 
     onMounted(() => {
-        const darkMode = window.matchMedia('(prefers-color-scheme: dark)');
-        if (darkMode.matches) {
-            toggleTheme.value = true;
-        }
+        toggleTheme.value = sessionStorage.getItem('dark-theme') === 'true' ? true : false;
     });
 </script>
 <style scoped>
