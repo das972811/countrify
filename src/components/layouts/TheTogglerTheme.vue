@@ -9,7 +9,7 @@
     </div>
 </template>
 <script setup lang="ts">
-    import { onMounted, ref, watch } from 'vue';
+    import { onMounted, ref } from 'vue';
 
     import MoonIcon from '@/components/UI/icons/MoonIcon.vue';
     import SunIcon from '@/components/UI/icons/SunIcon.vue';

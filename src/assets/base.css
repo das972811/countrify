@@ -4,6 +4,7 @@
     --background-color-primary: #ececec;
     --accent-color: #ffffff;
     --text-color: #111517;
+    --text-color-hover: #35628d;
     --dark-grey: #e4e4e4;
     color-scheme: light dark;
 }
@@ -12,6 +13,7 @@
     --background-color-primary: #202c37;
     --accent-color: #2b3945;
     --text-color: #ffffff;
+    --text-color-hover: #b4b9ca;
     --dark-grey: #566877;
 }
 

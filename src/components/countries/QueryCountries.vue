@@ -4,23 +4,36 @@
             <input id="search-countries" name="search-countries" type="text" required />
             <label for="search-countries"><search-icon></search-icon><span>Search for Countries</span></label>
         </div>
-        <div class="filter-countries">
+        <div class="filter-countries" @mouseover="showCountriesDropdownHandler" @mouseleave="hideCountriesDropdownHandler">
             <button>
-                <down-arrow-icon></down-arrow-icon> Filter by Region
+                    <down-arrow-icon></down-arrow-icon> Filter by Region
             </button>
-            <ul>
-                <li><button>Africa</button></li>
-                <li><button>America</button></li>
-                <li><button>Asia</button></li>
-                <li><button>Europe</button></li>
-                <li><button>Oceania</button></li>
-            </ul>
+            <transition name="show-countries">
+                <ul v-if="showCountries">
+                    <li v-for="country in countries" :key="country">
+                        <button :value="country" @click="(event: object) => selectedCountry(event)">{{ country }}</button>
+                    </li>
+                </ul>
+            </transition>
         </div>
     </section>
 </template>
 <script setup lang="ts">
+    import { ref } from 'vue';
+
     import SearchIcon from '../UI/icons/SearchIcon.vue';
     import DownArrowIcon from '../UI/icons/DownArrowIcon.vue';
+
+    const countries = ref(['Africa', 'America', 'Asia', 'Europe', 'Oceania']);
+    const showCountries = ref(false);
+
+    const showCountriesDropdownHandler = () => showCountries.value = true;
+    const hideCountriesDropdownHandler = () => showCountries.value = false;
+
+    const selectedCountry = (event: any) => {
+        console.log(event.target.value);
+    }
+    
 </script>
 <style scoped>
 section {
@@ -69,7 +82,6 @@ section {
     margin-left: 0.3rem;
 }
 
-
 .search-countries input[type='text']:focus + label[for="search-countries"],
 .search-countries input[type='text']:valid + label[for="search-countries"] {
     top: -25%;
@@ -92,6 +104,13 @@ section {
     color: var(--text-color);
     border: none;
     cursor: pointer;
+    transition: color 250ms ease-in,
+                font-size 250ms ease-in;
+}
+
+.filter-countries button:hover {
+    color: var(--text-color-hover);
+    font-size: 0.88rem;
 }
 
 .filter-countries > button:first-child {
@@ -121,6 +140,28 @@ section {
     height: 100%;
 }
 
+.show-countries-enter-active {
+    animation: fade-dropdown 175ms ease-in;
+}
+
+.show-countries-leave-active {
+    animation: fade-dropdown 175ms ease-out reverse;
+}
+
+@keyframes fade-dropdown {
+    0% {
+        opacity: 0;
+        transform: scale(0.9);
+        /* height: 0; */
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+        /* height: 100%; */
+    }
+}
+
 @media screen and (max-width: 950px) {
     section {
         flex-direction: column;
@@ -128,10 +169,12 @@ section {
     
     .search-countries input[type='text']{
         width: 100%;
+        transform: translateY(-2rem);
     }
 
     .filter-countries {
         margin-top: 2.5rem;
+        transform: translateY(0);
     }
 }
 </style>
