@@ -108,7 +108,7 @@ section {
                 font-size 250ms ease-in;
 }
 
-.filter-countries button:hover {
+.filter-countries :not(:first-child) button:hover {
     color: var(--text-color-hover);
     font-size: 0.88rem;
 }
@@ -152,13 +152,11 @@ section {
     0% {
         opacity: 0;
         transform: scale(0.9);
-        /* height: 0; */
     }
 
     100% {
         opacity: 1;
         transform: scale(1);
-        /* height: 100%; */
     }
 }
 
