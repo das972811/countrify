@@ -16,7 +16,7 @@ main {
 
 @media screen and (max-width: 1024px) {
     main {
-        background: red;
+        margin: 3.25rem 2rem 0 2rem;
     }
 }
 </style>

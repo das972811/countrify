@@ -160,6 +160,11 @@ section {
     }
 }
 
+
+/* @media screen and (max-width: 1024px) {
+
+} */
+
 @media screen and (max-width: 950px) {
     section {
         flex-direction: column;
@@ -167,12 +172,69 @@ section {
     
     .search-countries input[type='text']{
         width: 100%;
-        transform: translateY(-2rem);
     }
 
     .filter-countries {
         margin-top: 2.5rem;
         transform: translateY(0);
+        width: 100%;
+    }
+
+    .filter-countries > button:first-child svg {
+        left: 40%;
+        transform: scale(1.4);
+    }
+
+    .filter-countries > button:first-child,
+    .filter-countries ul li button {
+        font-size: 1rem;
+    }
+
+    .filter-countries :not(:first-child) button:hover {
+        color: var(--text-color-hover);
+        font-size: 1.1rem;
+    }
+}
+
+@media screen and (max-width: 875px) {
+    .filter-countries > button:first-child svg {
+        left: 39%;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .filter-countries > button:first-child svg {
+        left: 38%;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .filter-countries > button:first-child svg {
+        left: 36%;
+    }
+}
+
+@media screen and (max-width: 650px) {
+    .filter-countries > button:first-child svg {
+        left: 34%;
+    }
+}
+
+@media screen and (max-width: 575px) {
+    .filter-countries > button:first-child svg {
+        left: 32%;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .filter-countries > button:first-child svg {
+        left: 28%;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .filter-countries > button:first-child svg {
+        left: 25%;
     }
 }
 </style>
