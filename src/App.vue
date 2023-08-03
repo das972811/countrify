@@ -14,10 +14,7 @@
         const colorTheme = window.matchMedia('(prefers-color-scheme: dark)');
         const isDarkTheme = sessionStorage.getItem('dark-theme');
 
-        console.log('On Mounted');
-
         if (!isDarkTheme) {
-            console.log('SETTING');
             sessionStorage.setItem('dark-theme', 'false');
         }
 
