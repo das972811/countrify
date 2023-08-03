@@ -5,7 +5,7 @@
             <label for="search-countries"><search-icon></search-icon><span>Search for Countries</span></label>
         </div>
         <div class="filter-countries" @mouseover="showCountriesDropdownHandler" @mouseleave="hideCountriesDropdownHandler">
-            <button>
+            <button @click="toggleShowCountries">
                     <down-arrow-icon></down-arrow-icon> Filter by Region
             </button>
             <transition name="show-countries">
@@ -24,11 +24,13 @@
     import SearchIcon from '../UI/icons/SearchIcon.vue';
     import DownArrowIcon from '../UI/icons/DownArrowIcon.vue';
 
-    const countries = ref(['Africa', 'America', 'Asia', 'Europe', 'Oceania']);
+    const countries = ref(['All', 'Africa', 'America', 'Asia', 'Europe', 'Oceania']);
     const showCountries = ref(false);
+    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
 
-    const showCountriesDropdownHandler = () => showCountries.value = true;
-    const hideCountriesDropdownHandler = () => showCountries.value = false;
+    const showCountriesDropdownHandler = () => !isMobile ? showCountries.value = true : null;
+    const hideCountriesDropdownHandler = () => !isMobile ? showCountries.value = false : null;
+    const toggleShowCountries = () => isMobile ? showCountries.value = !showCountries.value : null;
 
     const selectedCountry = (event: any) => {
         console.log(event.target.value);
