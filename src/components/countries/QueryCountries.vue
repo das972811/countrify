@@ -4,14 +4,14 @@
             <input id="search-countries" name="search-countries" type="text" required />
             <label for="search-countries"><search-icon></search-icon><span>Search for Countries</span></label>
         </div>
-        <div class="filter-countries" @mouseover="showCountriesDropdownHandler" @mouseleave="hideCountriesDropdownHandler">
-            <button @click="toggleShowCountries">
+        <div class="filter-by-continents" @mouseover="showContinentsDropdownHandler" @mouseleave="hideContinentsDropdownHandler">
+            <button @click="toggleShowContinents">
                     <down-arrow-icon></down-arrow-icon> Filter by Region
             </button>
-            <transition name="show-countries">
-                <ul v-if="showCountries">
-                    <li v-for="country in countries" :key="country">
-                        <button :value="country" @click="(event: object) => selectedCountry(event)">{{ country }}</button>
+            <transition name="show-continents">
+                <ul v-if="showContinents">
+                    <li v-for="continent in continents" :key="continent">
+                        <button :value="continent" @click="(event: object) => selectedContinent(event)">{{ continent }}</button>
                     </li>
                 </ul>
             </transition>
@@ -24,15 +24,15 @@
     import SearchIcon from '../UI/icons/SearchIcon.vue';
     import DownArrowIcon from '../UI/icons/DownArrowIcon.vue';
 
-    const countries = ref(['All', 'Africa', 'America', 'Asia', 'Europe', 'Oceania']);
-    const showCountries = ref(false);
+    const continents = ref(['All', 'Africa', 'America', 'Asia', 'Europe', 'Oceania']);
+    const showContinents = ref(false);
     const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
 
-    const showCountriesDropdownHandler = () => !isMobile ? showCountries.value = true : null;
-    const hideCountriesDropdownHandler = () => !isMobile ? showCountries.value = false : null;
-    const toggleShowCountries = () => isMobile ? showCountries.value = !showCountries.value : null;
+    const showContinentsDropdownHandler = () => !isMobile ? showContinents.value = true : null;
+    const hideContinentsDropdownHandler = () => !isMobile ? showContinents.value = false : null;
+    const toggleShowContinents = () => isMobile ? showContinents.value = !showContinents.value : null;
 
-    const selectedCountry = (event: any) => {
+    const selectedContinent = (event: any) => {
         console.log(event.target.value);
     }
     
@@ -94,12 +94,12 @@ section {
     border-radius: 0.2rem;
 }
 
-.filter-countries {
+.filter-by-continents {
     position: relative;
     width: 12.5rem;
 }
 
-.filter-countries button {
+.filter-by-continents button {
     width: 100%;
     height: 3rem;
     background-color: var(--accent-color);
@@ -110,24 +110,24 @@ section {
                 font-size 250ms ease-in;
 }
 
-.filter-countries :not(:first-child) button:hover {
+.filter-by-continents :not(:first-child) button:hover {
     color: var(--text-color-hover);
     font-size: 0.88rem;
 }
 
-.filter-countries > button:first-child {
+.filter-by-continents > button:first-child {
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.filter-countries > button:first-child svg {
+.filter-by-continents > button:first-child svg {
     position: absolute;
     left: 1.75rem;
 }
 
-.filter-countries > ul {
+.filter-by-continents > ul {
     position: absolute;
     display: flex;
     flex-direction: column;
@@ -136,17 +136,17 @@ section {
     list-style: none;
 }
 
-.filter-countries li {
+.filter-by-continents li {
     display: inline-block;
     width: 100%;
     height: 100%;
 }
 
-.show-countries-enter-active {
+.show-continents-enter-active {
     animation: fade-dropdown 175ms ease-in;
 }
 
-.show-countries-leave-active {
+.show-continents-leave-active {
     animation: fade-dropdown 175ms ease-out reverse;
 }
 
@@ -176,66 +176,66 @@ section {
         width: 100%;
     }
 
-    .filter-countries {
+    .filter-by-continents {
         margin-top: 2.5rem;
         transform: translateY(0);
         width: 100%;
     }
 
-    .filter-countries > button:first-child svg {
+    .filter-by-continents > button:first-child svg {
         left: 40%;
         transform: scale(1.4);
     }
 
-    .filter-countries > button:first-child,
-    .filter-countries ul li button {
+    .filter-by-continents > button:first-child,
+    .filter-by-continents ul li button {
         font-size: 1rem;
     }
 
-    .filter-countries :not(:first-child) button:hover {
+    .filter-by-continents :not(:first-child) button:hover {
         color: var(--text-color-hover);
         font-size: 1.1rem;
     }
 }
 
 @media screen and (max-width: 875px) {
-    .filter-countries > button:first-child svg {
+    .filter-by-continents > button:first-child svg {
         left: 39%;
     }
 }
 
 @media screen and (max-width: 800px) {
-    .filter-countries > button:first-child svg {
+    .filter-by-continents > button:first-child svg {
         left: 38%;
     }
 }
 
 @media screen and (max-width: 700px) {
-    .filter-countries > button:first-child svg {
+    .filter-by-continents > button:first-child svg {
         left: 36%;
     }
 }
 
 @media screen and (max-width: 650px) {
-    .filter-countries > button:first-child svg {
+    .filter-by-continents > button:first-child svg {
         left: 34%;
     }
 }
 
 @media screen and (max-width: 575px) {
-    .filter-countries > button:first-child svg {
+    .filter-by-continents > button:first-child svg {
         left: 32%;
     }
 }
 
 @media screen and (max-width: 500px) {
-    .filter-countries > button:first-child svg {
+    .filter-by-continents > button:first-child svg {
         left: 28%;
     }
 }
 
 @media screen and (max-width: 400px) {
-    .filter-countries > button:first-child svg {
+    .filter-by-continents > button:first-child svg {
         left: 25%;
     }
 }
