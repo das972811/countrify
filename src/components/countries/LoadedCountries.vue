@@ -1,13 +1,19 @@
 <template>
     <div class="countries-container">
-        <div class="country" v-for="country in countries" :key="country.name.official">
-            <div class="country-image" :style="{ 'background-image': 'url(' + country.flags.svg + ')', backgroundColor: 'green' }"></div>
-            <h3>{{ country.name.official }}</h3>
-        </div>
+        <country-card
+            v-for="country in countries"
+            :key="country.name.official"
+            class="country"
+            :url="country.flags.svg"
+            :title="country.name.official"
+        >
+        </country-card>
     </div>
 </template>
 <script setup lang="ts">
     import { reactive } from 'vue';
+
+    import CountryCard from './CountryCard.vue';
 
     import { getAllCountries } from '@/utils/restCountriesApim';
 
@@ -22,7 +28,8 @@
         grid-template-rows: auto;
         row-gap: 4rem;
     }
-    .countries-container .country-image {
+
+    :deep(.country-image) {
         background-position: center;
         background-size: cover;
         background-repeat: no-repeat;
@@ -36,7 +43,7 @@
             grid-template-columns: repeat(4, 18.5rem);
         }
 
-        .countries-container .country-image {
+        .countries-container :deep(.country-image) {
             width: 18.5rem;
             height: 11.5rem;
         }
@@ -47,7 +54,7 @@
             grid-template-columns: repeat(3, 20.5rem);
         }
 
-        .countries-container .country-image {
+        .countries-container :deep(.country-image) {
             width: 20.5rem;
             height: 13.5rem;
         }
@@ -58,7 +65,7 @@
             grid-template-columns: repeat(3, 18.5rem);
         }
 
-        .countries-container .country-image {
+        .countries-container :deep(.country-image) {
             width: 18.5rem;
             height: 12.5rem;
         }
@@ -69,7 +76,7 @@
             grid-template-columns: repeat(2, 25.5rem);
         }
 
-        .countries-container .country-image {
+        .countries-container :deep(.country-image) {
             width: 25.5rem;
             height: 14.5rem;
         }
@@ -80,7 +87,7 @@
             grid-template-columns: repeat(2, 22rem);
         }
 
-        .countries-container .country-image {
+        .countries-container :deep(.country-image) {
             width: 22rem;
             height: 13rem;
         }
@@ -91,7 +98,7 @@
             grid-template-columns: repeat(2, 19rem);
         }
 
-        .countries-container .country-image {
+        .countries-container :deep(.country-image) {
             width: 19rem;
             height: 12rem;
         }
@@ -102,7 +109,7 @@
             grid-template-columns: repeat(2, 17rem);
         }
 
-        .countries-container .country-image {
+        .countries-container :deep(.country-image) {
             width: 17rem;
             height: 10rem;
         }
@@ -113,7 +120,7 @@
             grid-template-columns: repeat(1, 100%);
         }
 
-        .countries-container .country-image {
+        .countries-container :deep(.country-image) {
             width: 20.25rem;
             height: 13rem;
         }
