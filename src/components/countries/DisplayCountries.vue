@@ -1,6 +1,5 @@
 <template>
     <section>
-        <h2>Display Countries</h2>
         <Suspense>
             <template #default>
                 <loaded-countries></loaded-countries>
@@ -17,6 +16,6 @@
 </script>
 <style scoped>
 section {
-    margin-top: 3.5rem;
+    margin-top: 2.75rem;
 }
 </style>
