@@ -1,119 +1,49 @@
 <template>
     <div class="country">
         <div class="country-image" :style="countrySvgFlag"></div>
-        <h3>{{ title }}</h3>
+        <div class="country-information">
+            <h3>{{ title }}</h3>
+            <p>Population: {{ population }}</p>
+            <p>Region: {{ region }}</p>
+            <p>Capital: {{ capitalFormated }}</p>
+        </div>
     </div>
 </template>
 <script setup lang="ts">
-    import { computed, ref } from 'vue';
+    import { computed } from 'vue';
 
     interface Props {
         title: string
         url: string,
-    }
+        population: number,
+        region: string,
+        capital: Array<string> | undefined
+    };
 
-    const { title, url } = defineProps<Props>();
+    const { title, url, population, region, capital } = defineProps<Props>();
+
     const countrySvgFlag = computed(() => {
-        console.log(url);
         return { 'background-image' : 'url(' +  url + ')' };
+    });
+
+    const capitalFormated = computed(() => {
+        if (capital === undefined) return 'N/A';
+
+        let capitals = '';
+
+        for (const _capital of capital) {
+            capitals += `${_capital}, `
+        }
+
+        return capitals.slice(0, capitals.length - 2);
     });
 
 </script>
 <style scoped>
-    /* .country-image {
-        background-position: center;
-        background-size: cover;
-        background-repeat: no-repeat;
-        display: inline-block;
-        width: 20.5rem;
-        height: 13.5rem;
+    /* .country {
     } */
 
-    /* @media screen and (max-width: 1600px) {
-        .countries-container {
-            grid-template-columns: repeat(4, 18.5rem);
-        }
-
-        .countries-container .country-image {
-            width: 18.5rem;
-            height: 11.5rem;
-        }
+    .country-information {
+        background: var(--accent-color);
     }
-
-    @media screen and (max-width: 1400px) {
-        .countries-container {
-            grid-template-columns: repeat(3, 20.5rem);
-        }
-
-        .countries-container .country-image {
-            width: 20.5rem;
-            height: 13.5rem;
-        }
-    }
-
-    @media screen and (max-width: 1250px) {
-        .countries-container {
-            grid-template-columns: repeat(3, 18.5rem);
-        }
-
-        .countries-container .country-image {
-            width: 18.5rem;
-            height: 12.5rem;
-        }
-    }
-
-    @media screen and (max-width: 1150px) {
-        .countries-container {
-            grid-template-columns: repeat(2, 25.5rem);
-        }
-
-        .countries-container .country-image {
-            width: 25.5rem;
-            height: 14.5rem;
-        }
-    }
-
-    @media screen and (max-width: 950px) {
-        .countries-container {
-            grid-template-columns: repeat(2, 22rem);
-        }
-
-        .countries-container .country-image {
-            width: 22rem;
-            height: 13rem;
-        }
-    }
-
-    @media screen and (max-width: 850px) {
-        .countries-container {
-            grid-template-columns: repeat(2, 19rem);
-        }
-
-        .countries-container .country-image {
-            width: 19rem;
-            height: 12rem;
-        }
-    }
-
-    @media screen and (max-width: 750px) {
-        .countries-container {
-            grid-template-columns: repeat(2, 17rem);
-        }
-
-        .countries-container .country-image {
-            width: 17rem;
-            height: 10rem;
-        }
-    }
-
-    @media screen and (max-width: 650px) {
-        .countries-container {
-            grid-template-columns: repeat(1, 100%);
-        }
-
-        .countries-container .country-image {
-            width: 20.25rem;
-            height: 13rem;
-        }
-    } */
 </style>

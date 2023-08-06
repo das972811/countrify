@@ -3,9 +3,11 @@
         <country-card
             v-for="country in countries"
             :key="country.name.official"
-            class="country"
             :url="country.flags.svg"
             :title="country.name.official"
+            :population="country.population"
+            :region="country.region"
+            :capital="country.capital"
         >
         </country-card>
     </div>
@@ -33,7 +35,7 @@
         background-position: center;
         background-size: cover;
         background-repeat: no-repeat;
-        display: inline-block;
+        margin: 0 auto;
         width: 20.5rem;
         height: 13.5rem;
     }
