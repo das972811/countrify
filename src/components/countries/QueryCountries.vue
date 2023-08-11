@@ -1,7 +1,7 @@
 <template>
     <section>
         <div class="search-countries">
-            <input id="search-countries" name="search-countries" type="text" required />
+            <input id="search-countries" name="search-countries" type="text" v-model="country" required />
             <label for="search-countries"><search-icon></search-icon><span>Search for Countries</span></label>
         </div>
         <div class="filter-by-continents" @mouseover="showContinentsDropdownHandler" @mouseleave="hideContinentsDropdownHandler">
@@ -26,6 +26,8 @@
 
     const continents = ref(['All', 'Africa', 'America', 'Asia', 'Europe', 'Oceania']);
     const showContinents = ref(false);
+    const country = ref();
+
     const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
 
     const showContinentsDropdownHandler = () => !isMobile ? showContinents.value = true : null;
@@ -34,6 +36,7 @@
 
     const selectedContinent = (event: any) => {
         console.log(event.target.value);
+        showContinents.value = !showContinents.value;
     }
     
 </script>
