@@ -42,7 +42,6 @@
 <style scoped>
     .country {
         text-align: left;
-        position: relative;
         cursor: pointer;
     }
 
