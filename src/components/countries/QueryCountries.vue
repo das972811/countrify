@@ -1,7 +1,7 @@
 <template>
     <section>
         <div class="search-countries">
-            <input id="search-countries" name="search-countries" type="text" v-model="country" required />
+            <input id="search-countries" name="search-countries" type="text" v-model="country" @input="$emit('handleCountrySearch', country)" required />
             <label for="search-countries"><search-icon></search-icon><span>Search for Countries</span></label>
         </div>
         <div class="filter-by-continents" @mouseover="showContinentsDropdownHandler" @mouseleave="hideContinentsDropdownHandler">
@@ -23,6 +23,11 @@
 
     import SearchIcon from '../UI/icons/SearchIcon.vue';
     import DownArrowIcon from '../UI/icons/DownArrowIcon.vue';
+    
+    const emit = defineEmits<{
+        handleCountrySearch: [country: string],
+        handleCountriesFilteredByContinent: [continent: string]
+    }>();
 
     const continents = ref(['All', 'Africa', 'America', 'Asia', 'Europe', 'Oceania']);
     const showContinents = ref(false);
@@ -35,7 +40,7 @@
     const toggleShowContinents = () => isMobile ? showContinents.value = !showContinents.value : null;
 
     const selectedContinent = (event: any) => {
-        console.log(event.target.value);
+        emit('handleCountriesFilteredByContinent', event.target.value);
         showContinents.value = !showContinents.value;
     }
     

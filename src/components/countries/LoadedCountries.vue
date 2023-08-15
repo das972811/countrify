@@ -1,7 +1,7 @@
 <template>
     <div class="countries-container">
         <country-card
-            v-for="country in countries"
+            v-for="country in targetCountries"
             :key="country.name.official"
             :url="country.flags.svg"
             :title="country.name.official"
@@ -13,13 +13,23 @@
     </div>
 </template>
 <script setup lang="ts">
-    import { reactive } from 'vue';
+    import { ref, computed, inject } from 'vue';
 
     import CountryCard from './CountryCard.vue';
 
     import { getAllCountries } from '@/utils/restCountriesApim';
 
-    const countries = reactive({... await getAllCountries()});
+    const searchedCountry = inject('search-country');
+    const selectedContinent = inject('target-continent');
+
+    const targetCountry = ref(searchedCountry);
+    const targetContinent = ref(selectedContinent);
+
+    const countries = ref([... await getAllCountries()]);
+    const targetCountries = computed(() => {
+        console.log(targetContinent.value);
+        return countries.value.filter(country => country.name.official.includes(targetCountry.value));
+    });
 </script>
 <style scoped>
     .countries-container {
