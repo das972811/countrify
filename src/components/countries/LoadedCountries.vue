@@ -32,7 +32,7 @@
             const findingTargetCountry = country.name.official.includes(targetCountry.value);
 
             if (targetContinent.value !== 'All') {
-                return findingTargetCountry && targetContinent.value === continent;
+                return findingTargetCountry && continent.includes(targetContinent.value);
             }
 
             return findingTargetCountry;
