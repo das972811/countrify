@@ -24,11 +24,19 @@
 
     const targetCountry = ref(searchedCountry);
     const targetContinent = ref(selectedContinent);
-
+    
     const countries = ref([... await getAllCountries()]);
     const targetCountries = computed(() => {
-        console.log(targetContinent.value);
-        return countries.value.filter(country => country.name.official.includes(targetCountry.value));
+        return countries.value.filter(country => {
+            const continent = country.continents[0];
+            const findingTargetCountry = country.name.official.includes(targetCountry.value);
+
+            if (targetContinent.value !== 'All') {
+                return findingTargetCountry && targetContinent.value === continent;
+            }
+
+            return findingTargetCountry;
+        });
     });
 </script>
 <style scoped>

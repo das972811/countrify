@@ -15,7 +15,7 @@
     import DisplayCountries from './DisplayCountries.vue';
 
     const searchedCountry = ref('');
-    const targetContinent = ref('');
+    const targetContinent = ref('All');
 
     provide('search-country', readonly(searchedCountry));
     provide('target-continent', readonly(targetContinent));
@@ -26,13 +26,13 @@
 </script>
 <style scoped>
 main {
-    margin: 3.25rem 5rem 0 5rem;
+    margin: 3.25rem 5rem 3.25rem 5rem;
     
 }
 
 @media screen and (max-width: 1024px) {
     main {
-        margin: 3.25rem 2rem 0 2rem;
+        margin: 3.25rem 2rem 3.25rem 2rem;
     }
 }
 </style>
