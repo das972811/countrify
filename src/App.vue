@@ -1,13 +1,14 @@
 <template>
     <the-header></the-header>
-    <the-countries></the-countries>
+    <main>
+        <router-view></router-view>
+    </main>
     <the-footer></the-footer>
 </template>
 <script setup lang="ts">
     import { onBeforeMount } from 'vue';
     
     import TheHeader from './components/layouts/TheHeader.vue';
-    import TheCountries from './components/countries/TheCountries.vue';
     import TheFooter from './components/layouts/TheFooter.vue';
 
     onBeforeMount(() => {
@@ -28,4 +29,13 @@
 
 </script>
 <style>
+    main {
+        margin: 3.25rem 5rem 3.25rem 5rem;
+    }
+
+    @media screen and (max-width: 1024px) {
+        main {
+            margin: 3.25rem 2rem 3.25rem 2rem;
+        }
+    }
 </style>

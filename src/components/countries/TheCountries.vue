@@ -1,12 +1,18 @@
 <template>
-    <main>
+    <!-- <main>
         <query-countries
             @handle-country-search="countrySearchHandler"
             @handleCountriesFilteredByContinent="countriesFilteredByContinentHandler"
         >
         </query-countries>
         <display-countries></display-countries>
-    </main>
+    </main> -->
+    <query-countries
+        @handle-country-search="countrySearchHandler"
+        @handleCountriesFilteredByContinent="countriesFilteredByContinentHandler"
+    >
+    </query-countries>
+    <display-countries></display-countries>
 </template>
 <script setup lang="ts">
     import { ref, provide, readonly } from 'vue';
@@ -24,14 +30,3 @@
     const countriesFilteredByContinentHandler = (continent: string) => targetContinent.value = continent;
 
 </script>
-<style scoped>
-main {
-    margin: 3.25rem 5rem 3.25rem 5rem;
-}
-
-@media screen and (max-width: 1024px) {
-    main {
-        margin: 3.25rem 2rem 3.25rem 2rem;
-    }
-}
-</style>
