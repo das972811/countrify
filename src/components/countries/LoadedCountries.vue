@@ -43,9 +43,11 @@
     });
 
     const displayDetailedCountryHandler = (countryName: string) => {
-        console.log(countryName);
         router.push({ name: 'country', params: { country: countryName } });
     }
+
+    // NOTE TO DIEGO CHECK OUT THIS LINK
+    // https://codepen.io/mosemose/pen/qBZqJjL
 
     // onMounted(() => {
     //     const observer = new IntersectionObserver((entries) => {
