@@ -1,12 +1,4 @@
 <template>
-    <!-- <main>
-        <query-countries
-            @handle-country-search="countrySearchHandler"
-            @handleCountriesFilteredByContinent="countriesFilteredByContinentHandler"
-        >
-        </query-countries>
-        <display-countries></display-countries>
-    </main> -->
     <query-countries
         @handle-country-search="countrySearchHandler"
         @handleCountriesFilteredByContinent="countriesFilteredByContinentHandler"
