@@ -4,6 +4,7 @@
         @handleCountriesFilteredByContinent="countriesFilteredByContinentHandler"
     >
     </query-countries>
+    <!-- <router-view></router-view> -->
     <display-countries></display-countries>
 </template>
 <script setup lang="ts">

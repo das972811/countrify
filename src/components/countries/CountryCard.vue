@@ -1,5 +1,5 @@
 <template>
-    <div class="country">
+    <div class="country" @click="handleCountryDetailedView(title)">
         <div class="country-image" :style="countrySvgFlag"></div>
         <div class="country-information">
             <h3 class="country-information__title">{{ title }}</h3>
@@ -17,7 +17,8 @@
         url: string,
         population: number,
         region: string,
-        capital: Array<string> | undefined
+        capital: Array<string> | undefined,
+        handleCountryDetailedView: (countryName: string) => void
     };
 
     const { title, url, population, region, capital } = defineProps<Props>();

@@ -30,6 +30,7 @@
 </script>
 <style>
     main {
+        position: relative;
         margin: 3.25rem 5rem 3.25rem 5rem;
     }
 

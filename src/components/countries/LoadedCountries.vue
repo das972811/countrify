@@ -7,15 +7,19 @@
         :population="country.population"
         :region="country.region"
         :capital="country.capital"
+        :handleCountryDetailedView="displayDetailedCountryHandler"
     >
     </country-card>
 </template>
 <script setup lang="ts">
     import { ref, computed, inject } from 'vue';
+    import { useRouter } from 'vue-router';
 
     import CountryCard from './CountryCard.vue';
 
     import { getAllCountries } from '@/utils/restCountriesApim';
+
+    const router = useRouter();
 
     const searchedCountry = inject('search-country');
     const selectedContinent = inject('target-continent');
@@ -24,6 +28,7 @@
     const targetContinent = ref(selectedContinent);
     
     const countries = ref([... await getAllCountries()]);
+    
     const targetCountries = computed(() => {
         return countries.value.filter(country => {
             const continent = country.continents[0];
@@ -36,6 +41,11 @@
             return findingTargetCountry;
         });
     });
+
+    const displayDetailedCountryHandler = (countryName: string) => {
+        console.log(countryName);
+        router.push({ name: 'country', params: { country: countryName } });
+    }
 
     // onMounted(() => {
     //     const observer = new IntersectionObserver((entries) => {
