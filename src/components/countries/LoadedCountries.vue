@@ -28,7 +28,6 @@
     const targetContinent = ref(selectedContinent);
     
     const countries = ref([... await getAllCountries()]);
-    
     const targetCountries = computed(() => {
         return countries.value.filter(country => {
             const continent = country.continents[0];

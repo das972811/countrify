@@ -8,6 +8,7 @@ export const router = createRouter({
     routes: [
         { path: '/', redirect: 'countries' },
         {
+            name: 'countries',
             path: '/countries', component: TheCountries,
             children: [
                 { name: 'country', path: ':country', component: CountryDetailedView}
