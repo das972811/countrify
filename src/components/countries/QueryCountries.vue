@@ -50,6 +50,9 @@ section {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    position: sticky;
+    top: 2rem;
+    z-index: 200;
 }
 
 .search-countries {

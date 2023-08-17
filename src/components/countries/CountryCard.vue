@@ -37,22 +37,21 @@
 
         return capitals.slice(0, capitals.length - 2);
     });
-
 </script>
 <style scoped>
     .country {
         text-align: left;
         cursor: pointer;
+        position: relative;
+
+        /* transform: translateY(15rem);
+        transition: transform 500ms ease-in-out; */
     }
 
     .country-information {
         background: var(--accent-color);
         height: 10.5rem;
-        padding: 1.5rem 2rem  0 1.5rem;
-    }
-
-    .country-information.hide {
-        display: none;
+        padding: 1.5rem 2rem 0 1.5rem;
     }
 
     .country-information__title {
@@ -69,16 +68,8 @@
         color: var(--accent-text-color);
     }
 
-    /* .country-information__population {
-
-    }
-
-    .country-information__region {
-
-    }
-
-    .country-information__capital {
-
+    /* .country.slide-up-country-card {
+        transform: translateY(0);
     } */
 
     @media screen and (max-width: 650px) {

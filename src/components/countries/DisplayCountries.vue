@@ -2,10 +2,19 @@
     <section>
         <Suspense>
             <template #default>
-                <loaded-countries></loaded-countries>
+                <base-countries-card>
+                <template #default>
+                        <!-- <loading-countries></loading-countries> -->
+                        <loaded-countries></loaded-countries>
+                    </template>
+                </base-countries-card>
             </template>
             <template #fallback>
-                <loading-countries></loading-countries>
+                <base-countries-card>
+                    <template #default>
+                        <loading-countries></loading-countries>
+                    </template>
+                </base-countries-card>
             </template>
         </Suspense>
     </section>
@@ -13,6 +22,7 @@
 <script setup lang="ts">
     import LoadedCountries from './LoadedCountries.vue';
     import LoadingCountries from './LoadingCountries.vue';
+    import BaseCountriesCard from './BaseCountriesCard.vue';
 </script>
 <style scoped>
 section {
