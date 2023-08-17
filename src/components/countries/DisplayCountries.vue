@@ -4,7 +4,6 @@
             <template #default>
                 <base-countries-card>
                 <template #default>
-                        <!-- <loading-countries></loading-countries> -->
                         <loaded-countries></loaded-countries>
                     </template>
                 </base-countries-card>
