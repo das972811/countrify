@@ -1,5 +1,5 @@
 <template>
-    <div class="country" @click="displayDetailedCountryHandler(title)">
+    <div class="country" @click="displayCountryHandler(title)">
         <div class="country-image" :style="countrySvgFlag"></div>
         <div class="country-information">
             <h3 class="country-information__title">{{ title }}</h3>
@@ -8,13 +8,11 @@
             <p class="country-information__capital">Capital: <span class="gray-text">{{ capitalFormated }}</span></p>
         </div>
 
-        <base-modal v-if="showDetailedCountryView">
-            <router-view></router-view>
-        </base-modal>
     </div>
 </template>
 <script setup lang="ts">
     import { computed, ref } from 'vue';
+    import { useRouter } from 'vue-router'
 
     interface Props {
         title: string
@@ -22,12 +20,11 @@
         population: number,
         region: string,
         capital: Array<string> | undefined,
-        handleCountryDetailedView: (countryName: string) => void
     };
 
-    const { title, url, population, region, capital, handleCountryDetailedView } = defineProps<Props>();
+    const { title, url, population, region, capital } = defineProps<Props>();
 
-    const showDetailedCountryView = ref(false);
+    const router = useRouter();
 
     const countrySvgFlag = computed(() => {
         return { 'background-image' : 'url(' +  url + ')' };
@@ -45,9 +42,8 @@
         return capitals.slice(0, capitals.length - 2);
     });
 
-    const displayDetailedCountryHandler = (title: string) => {
-        handleCountryDetailedView(title);
-        showDetailedCountryView.value = true;
+    const displayCountryHandler = (title: string) => {
+        router.push({ name: 'country', params: { country: title } });
     }
 </script>
 <style scoped>

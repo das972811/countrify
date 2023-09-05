@@ -9,8 +9,8 @@
 <script setup lang="ts">
     import { ref, provide, readonly } from 'vue';
 
-    import QueryCountries from './QueryCountries.vue';
-    import DisplayCountries from './DisplayCountries.vue';
+    import QueryCountries from '@/components/countries/QueryCountries.vue';
+    import DisplayCountries from '@/components/countries/DisplayCountries.vue';
 
     const searchedCountry = ref('');
     const targetContinent = ref('All');

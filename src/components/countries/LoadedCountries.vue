@@ -7,19 +7,15 @@
         :population="country.population"
         :region="country.region"
         :capital="country.capital"
-        :handleCountryDetailedView="displayDetailedCountryHandler"
     >
     </country-card>
 </template>
 <script setup lang="ts">
     import { ref, computed, inject } from 'vue';
-    import { useRouter } from 'vue-router';
 
-    import CountryCard from './CountryCard.vue';
+    import CountryCard from '../country/CountryCard.vue';
 
     import { getAllCountries } from '@/utils/restCountriesApim';
-
-    const router = useRouter();
 
     const searchedCountry = inject('search-country');
     const selectedContinent = inject('target-continent');
@@ -40,10 +36,6 @@
             return findingTargetCountry;
         });
     });
-
-    const displayDetailedCountryHandler = (countryName: string) => {
-        router.push({ name: 'country', params: { country: countryName } });
-    }
 
     // NOTE TO DIEGO CHECK OUT THIS LINK
     // https://codepen.io/mosemose/pen/qBZqJjL
