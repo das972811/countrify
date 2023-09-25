@@ -1,7 +1,9 @@
 <template>
     <the-header></the-header>
     <main>
-        <router-view></router-view>
+        <suspense>
+            <router-view></router-view>
+        </suspense>
     </main>
     <the-footer></the-footer>
 </template>
